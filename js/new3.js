@@ -45,7 +45,7 @@ var viewModel = function () {
             window.clearTimeout(searchTimeout);
         }
         searchTimeout = window.setTimeout(reallyDoSearch, 500);
-    }
+    };
 
     function reallyDoSearch() {
         var type = document.getElementById('typeOf')
@@ -98,7 +98,7 @@ var viewModel = function () {
                     let destinationLng = results[i].geometry.location.lng();
                     var φ1 = toRadians(29.567496);
                     var φ2 = toRadians(destinationLat);
-                    var deltaLat = destinationLat - 29.567496;
+                    var deltaLat = destinationLat - (29.567496);
                     var deltaLng = destinationLng - -95.713618;
                     var Δφ = toRadians(deltaLat);
                     var Δλ = toRadians(deltaLng);
@@ -141,7 +141,7 @@ var viewModel = function () {
         infowindow = new google.maps.InfoWindow();
         placesservice = new google.maps.places.PlacesService(map);
         placesservice.nearbySearch(request, callback);
-    }
+    };
 
     function clearMarkers() {
         for (var i = 0; i < markers.length; i++) {
@@ -155,7 +155,7 @@ var viewModel = function () {
 
     toRadians = function (num) {
         return num * Math.PI / 180;
-    }
+    };
 
     function callback(results, status, pagination) {
 
@@ -185,7 +185,7 @@ var viewModel = function () {
                 var φ1 = toRadians(29.567496);
                 var φ2 = toRadians(destinationLat);
                 var deltaLat = destinationLat - 29.567496;
-                var deltaLng = destinationLng - -95.713618;
+                var deltaLng = destinationLng - (-95.713618);
                 var Δφ = toRadians(deltaLat);
                 var Δλ = toRadians(deltaLng);
                 var a = Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
@@ -242,7 +242,7 @@ var viewModel = function () {
         var client_id = '1JM24EFDXPAAABQRAZQD5MBRRNDONBTF1ZBCX0SDPE2P5XND';
         var client_secret = 'S4AYKN2LZIJEGLKXCSWGQAOOBDVAYGPC2HU11DRPSGRBSFQ0';
         // foursquare api url
-        var foursquare = "https://api.foursquare.com/v2/venues/search?v=20161016&ll=" + place.geometry.location.lat() + "," + place.geometry.location.lng() + "&query=" + encodeURIComponent(place.name) + "&client_id=MWXWVYKPA5TVSL0QJX230SUTBNZZHNELA500FK4PAHI5PPWE&client_secret=3DZWKCZHGLOVVPTH0XCURJXT3POB3K0HBQYIEXQLPYA5SUWP"
+        var foursquare = "https://api.foursquare.com/v2/venues/search?v=20161016&ll=" + place.geometry.location.lat() + "," + place.geometry.location.lng() + "&query=" + encodeURIComponent(place.name) + "&client_id=MWXWVYKPA5TVSL0QJX230SUTBNZZHNELA500FK4PAHI5PPWE&client_secret=3DZWKCZHGLOVVPTH0XCURJXT3POB3K0HBQYIEXQLPYA5SUWP";
 
         // start ajax and grab: venue name, phone number and twitter handle
         $.getJSON(foursquare)
@@ -283,7 +283,7 @@ var viewModel = function () {
                     }, 1450);
                 });
 
-            })
+            });
 
         markers.push(marker);
         return marker;
@@ -323,7 +323,7 @@ var viewModel = function () {
 
 
 
-}
+};
 
 google.maps.event.addDomListener(window, 'load', initialize);
 var results, allResults = [];
